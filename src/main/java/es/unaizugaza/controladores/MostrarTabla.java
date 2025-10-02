@@ -5,13 +5,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+<<<<<<< HEAD
 import java.util.Stack;
+=======
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
 
 import java.time.LocalDate;
 
 public class MostrarTabla {
 
+<<<<<<< HEAD
     private final Stack<Persona> deletedStack = new Stack<>();
+=======
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
 
     @FXML
     private Button btAdd;
@@ -58,20 +64,28 @@ public class MostrarTabla {
 
     @FXML
     void borrarFilas(ActionEvent event) {
+<<<<<<< HEAD
         Persona selected = tableMain.getSelectionModel().getSelectedItem();
         if(selected != null) {
             tableMain.getItems().remove(selected);
             deletedStack.push(selected);
         }
+=======
+
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
     }
 
     @FXML
     void restaurar(ActionEvent event) {
+<<<<<<< HEAD
         if(!deletedStack.isEmpty()) {
             Persona restored = deletedStack.pop();
             tableMain.getItems().add(restored);
 
         }
+=======
+
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
     }
 
     @FXML

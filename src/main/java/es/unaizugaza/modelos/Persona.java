@@ -1,7 +1,10 @@
 package es.unaizugaza.modelos;
 
+<<<<<<< HEAD
 import javafx.scene.control.Alert;
 
+=======
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
 import java.time.LocalDate;
 
 public class Persona {
@@ -49,10 +52,17 @@ public class Persona {
      */
     public void setBirthDate(LocalDate birthDate) {
         if (birthDate == null) {
+<<<<<<< HEAD
             Alert alert = new Alert(Alert.AlertType.WARNING, "La fecha de nacimiento no puede ser nula");
         }
         if (birthDate.isAfter(LocalDate.now())) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "La fecha de nacimiento no puede ser futura");
+=======
+            throw new IllegalArgumentException("La fecha de nacimiento no puede ser nula");
+        }
+        if (birthDate.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("La fecha de nacimiento no puede ser futura");
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
         }
         this.birthDate = birthDate;
     }

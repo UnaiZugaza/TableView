@@ -7,15 +7,25 @@
     <groupId>es.unaizugaza</groupId>
     <artifactId>TableView</artifactId>
     <version>1.0-SNAPSHOT</version>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
     <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+<<<<<<< HEAD
         <mainClass>es.unaizugaza.lanzador</mainClass>
     </properties>
 
+=======
+        <!--Añadir main class en properties -->
+        <mainClass>es.unaizugaza.lanzador</mainClass>
+    </properties>
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -27,6 +37,10 @@
             <artifactId>javafx-fxml</artifactId>
             <version>13</version>
         </dependency>
+<<<<<<< HEAD
+=======
+        <!--Añadir dependencies para el logger -->
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -48,6 +62,7 @@
             <version>1.5.13</version>
         </dependency>
     </dependencies>
+<<<<<<< HEAD
 
     <build>
         <plugins>
@@ -65,6 +80,10 @@
 
 
             <!-- Compiler -->
+=======
+    <build>
+        <plugins>
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -73,6 +92,7 @@
                     <release>11</release>
                 </configuration>
             </plugin>
+<<<<<<< HEAD
 
             <!-- JAR -->
             <plugin>
@@ -81,6 +101,15 @@
                 <version>3.4.1</version>
                 <configuration>
                     <archive>
+=======
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version> 3.4.1</version>
+                <configuration>
+                    <archive>
+                        <!--Añadir manifiesto -->
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <ClasspathPrefix>libs</ClasspathPrefix>
@@ -89,9 +118,14 @@
                     </archive>
                 </configuration>
             </plugin>
+<<<<<<< HEAD
 
             <!-- Copiar dependencias -->
             <plugin>
+=======
+            <plugin>
+                <!--Añadir plugin apache -->
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.7.1</version>
@@ -103,13 +137,22 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
+<<<<<<< HEAD
                             <outputDirectory>${project.build.directory}/libs</outputDirectory>
+=======
+                            <outputDirectory>
+                                ${project.build.directory}/libs
+                            </outputDirectory>
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+<<<<<<< HEAD
 
             <!-- JavaFX -->
+=======
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>

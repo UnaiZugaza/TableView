@@ -3,6 +3,7 @@ module es.unaizugaza {
     requires javafx.fxml;
     requires java.logging;
     requires org.slf4j;
+<<<<<<< HEAD
     requires ch.qos.logback.classic;
 
     opens es.unaizugaza to javafx.fxml;
@@ -11,4 +12,12 @@ module es.unaizugaza {
 
     exports es.unaizugaza;
     exports es.unaizugaza.modelos;
+=======
+
+    opens es.unaizugaza to javafx.fxml;
+    exports es.unaizugaza;
+    exports es.unaizugaza.modelos;
+    opens es.unaizugaza.modelos to javafx.fxml;
+    opens es.unaizugaza.controladores to javafx.fxml;
+>>>>>>> 5d15ec248a0fe7027e9e34ecc086e3446edc2afc
 }
