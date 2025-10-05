@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS empresa;
 USE empresa;
 
 CREATE TABLE IF NOT EXISTS Persona (
-    dni INT AUTO_INCREMENT PRIMARY KEY,
+    dni PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
     birth_date DATE NOT NULL

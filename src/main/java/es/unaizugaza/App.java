@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * JavaFX App
@@ -25,6 +26,7 @@ public class App extends Application {
 
         logger.info("Iniciando el programa...");
         scene = new Scene(loadFXML("fxml/mostrarTabla"), 640, 480);
+        scene.getStylesheets().add(getClass().getResource("css/style.css").toExternalForm());
         stage.setMinWidth(400);
         stage.setMinHeight(500);
         stage.setScene(scene);

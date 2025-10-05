@@ -39,21 +39,21 @@ public class PersonaDAO {
 
     public ObservableList<Persona> getTodasPersonas() {
         ObservableList<Persona> lista = FXCollections.observableArrayList();
-        String sql = "SELECT id, first_name, last_name, birth_date FROM persona";
+        String sql = "SELECT dni, first_name, last_name, birth_date FROM Persona";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                int id = rs.getInt("id");
+                int dni = rs.getInt("dni");
                 String nombre = rs.getString("first_name");
                 String apellido = rs.getString("last_name");
                 Date fechaSQL = rs.getDate("birth_date");
                 LocalDate fecha = fechaSQL != null ? fechaSQL.toLocalDate() : null;
 
-                Persona persona = new Persona(id, nombre, apellido, fecha);
-                lista.add(persona);
+                Persona Persona = new Persona(dni, nombre, apellido, fecha);
+                lista.add(Persona);
             }
 
         } catch (SQLException e) {
@@ -63,12 +63,12 @@ public class PersonaDAO {
         return lista;
     }
 
-    public Persona obtenerPersona(int id) {
-        String sql = "SELECT id, first_name, last_name, birth_date FROM persona WHERE id = ?";
+    public Persona obtenerPersona(int dni) {
+        String sql = "SELECT dni, first_name, last_name, birth_date FROM Persona WHERE dni = ?";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, id);
+            ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -77,7 +77,7 @@ public class PersonaDAO {
                 Date fechaSQL = rs.getDate("birth_date");
                 LocalDate fecha = fechaSQL != null ? fechaSQL.toLocalDate() : null;
 
-                return new Persona(id, nombre, apellido, fecha);
+                return new Persona(dni, nombre, apellido, fecha);
             }
 
         } catch (SQLException e) {
@@ -88,7 +88,7 @@ public class PersonaDAO {
     }
 
     public boolean insertarPersona(Persona p) {
-        String sql = "INSERT INTO persona(first_name, last_name, birth_date) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Persona(first_name, last_name, birth_date) VALUES (?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
@@ -112,18 +112,12 @@ public class PersonaDAO {
         return false;
     }
 
-    /**
-     * Elimina una persona de la base de datos según su ID.
-     *
-     * @param id identificador único de la persona a eliminar.
-     * @return {@code true} si la eliminación fue exitosa, {@code false} en caso contrario.
-     */
-    public boolean borrarPersona(int id) {
-        String sql = "DELETE FROM persona WHERE id = ?";
+    public boolean borrarPersona(int dni) {
+        String sql = "DELETE FROM Persona WHERE dni = ?";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, id);
+            ps.setInt(1, dni);
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
@@ -132,15 +126,9 @@ public class PersonaDAO {
         }
     }
 
-    /**
-     * Elimina todos los registros de la tabla <b>persona</b>.
-     *
-     * <p>Se debe usar con precaución, ya que esta operación no puede revertirse.</p>
-     *
-     * @return {@code true} si la operación fue exitosa, {@code false} si ocurrió un error.
-     */
+
     public boolean borrarTodasPersonas() {
-        String sql = "DELETE FROM persona";
+        String sql = "DELETE FROM Persona";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
              Statement stmt = conn.createStatement()) {
 
